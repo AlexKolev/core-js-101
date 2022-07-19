@@ -1,0 +1,7 @@
+function getSecondItems(arr) {
+  const numArr = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => numArr.indexOf(a) - numArr.indexOf(b));
+}
+
+
+console.log(getSecondItems(['four', 'one']));
