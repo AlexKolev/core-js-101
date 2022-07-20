@@ -1,7 +1,22 @@
-function getSecondItems(arr) {
-  const numArr = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-  return arr.sort((a, b) => numArr.indexOf(a) - numArr.indexOf(b));
+function getElementByIndexes(arr, indexes) {
+  return indexes.reduce(
+    (previousValue, currentValue) => {
+      if (Array.isArray(previousValue[currentValue])) {
+        // previousValue = previousValue[currentValue];
+        return previousValue[currentValue];
+      } else
+        return previousValue[currentValue];
+    },
+    arr
+  );
 }
 
+// let retArr = [];
+// retArr = retArr.concat(2);
+// console.log(retArr);
 
-console.log(getSecondItems(['four', 'one']));
+console.log(getElementByIndexes([[1, 2], [3, 4], [5, 6]], [0, 0]));
+
+console.log(getElementByIndexes(['one', 'two', 'three'], [2]));
+
+
