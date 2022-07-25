@@ -1,166 +1,164 @@
-// function fromJSON(proto, json) {
-//   // throw new Error('Not implemented');
-//   console.log(JSON.parse(json));
-//   let r = JSON.parse(json);
-//   return Object.setPrototypeOf(JSON.parse(json), proto); //Object.create(proto, { r });
+// function evaluateTicTacToePosition(position) {
+//   let countX = 0;
+//   let count0 = 0;
+//   let xX, yX, x0, y0
+//   for (let x = 0; x < position.length; x += 1) {
+//     for (let y = 0; y < position[x].length; y += 1) {
+//       if (position[x][y] === 'X') {
+//         if (xX === undefined) {
+//           xX = x;
+//           yX = y;
+//           countX += 1;
+//         } else if (countX === 1) {
+//           if (xX === x && yX === y - 1) {
+//             xX = x;
+//             yX = y + 1;
+//             countX += 1;
+//           }
+//           if (xX === x - 1 && yX === y - 1) {
+//             xX = x + 1;
+//             yX = y + 1;
+//             countX += 1;
+//           }
+//           if (xX === x - 1 && yX === y) {
+//             xX = x + 1;
+//             yX = y;
+//             countX += 1;
+//           }
+//         } else if (countX >= 1) {
+//           if (xX === x && yX === y) {
+//             xX = x;
+//             yX = y + 1;
+//             countX += 1;
+//           }
+//           if (xX === x && yX === y) {
+//             xX = x + 1;
+//             yX = y + 1;
+//             countX += 1;
+//           }
+//           if (xX === x + 1 && yX === y) {
+//             xX = x + 1;
+//             yX = y;
+//             countX += 1;
+//           }
+//         }
+//       }
+
+//       if (position[x][y] === '0') {
+//         if (x0 === undefined) {
+//           x0 = x;
+//           y0 = y;
+//           count0 += 1;
+//         } else if (count0 === 1) {
+//           if (x0 === x && y0 === y - 1) {
+//             x0 = x;
+//             y0 = y + 1;
+//             count0 += 1;
+//           }
+//           if (x0 === x - 1 && y0 === y - 1) {
+//             x0 = x + 1;
+//             y0 = y + 1;
+//             count0 += 1;
+//           }
+//           if (x0 === x - 1 && y0 === y) {
+//             x0 = x + 1;
+//             y0 = y;
+//             count0 += 1;
+//           }
+//         } else if (count0 >= 1) {
+//           if (x0 === x && y0 === y) {
+//             x0 = x;
+//             y0 = y + 1;
+//             count0 += 1;
+//           }
+//           if (x0 === x && y0 === y) {
+//             x0 = x + 1;
+//             y0 = y + 1;
+//             count0 += 1;
+//           }
+//           if (x0 === x + 1 && y0 === y) {
+//             x0 = x + 1;
+//             y0 = y;
+//             count0 += 1;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   console.log(countX);
+//   console.log(count0);
+//   if (countX == 3) {
+//     return 'X';
+//   }
+//   if (count0 == 3) {
+//     return '0';
+//   }
+//   return undefined;
 // }
 
-//console.log(angleBetweenClockHands(10, 20));
-
-class Selector {
-  element(value) {
-    if (this.element1) {
-      throw new Error('Element, id and pseudo-element should not occur more then one time inside the selector');
-    }
-    if (this.id1) {
-      throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
-    }
-    this.element1 = value;
-    return this;
+function evaluateTicTacToePosition(position) {
+  if (position[0][0] === 'X' && position[0][1] === 'X' && position[0][1] === 'X') {
+    return 'X'
+  }
+  if (position[1][0] === 'X' && position[1][1] === 'X' && position[1][2] === 'X') {
+    return 'X'
+  }
+  if (position[2][0] === 'X' && position[2][1] === 'X' && position[2][2] === 'X') {
+    return 'X'
+  }
+  if (position[0][0] === 'X' && position[1][1] === 'X' && position[2][2] === 'X') {
+    return 'X'
+  }
+  if (position[0][2] === 'X' && position[1][1] === 'X' && position[2][0] === 'X') {
+    return 'X'
   }
 
-  id(value) {
-    if (this.class1 || this.pseudoElement1) {
-      throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
-    }
-    this.id1 = `#${value}`;
-    return this;
+  if (position[0][0] === 'X' && position[0][1] === 'X' && position[0][2] === 'X') {
+    return 'X'
   }
 
-  class(value) {
-    if (this.attr1) {
-      throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
-    }
-    if (!this.class1) {
-      this.class1 = `.${value}`;
-    } else {
-      this.class1 = `${this.class1}.${value}`;
-    }
-    return this;
+  if (position[1][0] === 'X' && position[1][1] === 'X' && position[1][2] === 'X') {
+    return 'X'
+  }
+  if (position[2][0] === 'X' && position[2][1] === 'X' && position[2][2] === 'X') {
+    return 'X'
+  }
+  ///0000000000000000000000000
+  if (position[0][0] === '0' && position[0][1] === '0' && position[0][1] === '0') {
+    return '0'
+  }
+  if (position[1][0] === '0' && position[1][1] === '0' && position[1][2] === '0') {
+    return '0'
+  }
+  if (position[2][0] === '0' && position[2][1] === '0' && position[2][2] === '0') {
+    return '0'
+  }
+  if (position[0][0] === '0' && position[1][1] === '0' && position[2][2] === '0') {
+    return '0'
+  }
+  if (position[0][2] === '0' && position[1][1] === '0' && position[2][0] === '0') {
+    return '0'
   }
 
-  attr(value) {
-    if (this.pseudoClass1) {
-      throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
-    }
-    this.attr1 = `[${value}]`;
-    return this;
+  if (position[0][0] === '0' && position[0][1] === '0' && position[0][2] === '0') {
+    return '0'
   }
 
-  pseudoClass(value) {
-    if (this.pseudoElement1) {
-      throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
-    }
-    if (!this.pseudoClass1) {
-      this.pseudoClass1 = `:${value}`;
-    } else {
-      this.pseudoClass1 = `${this.pseudoClass1}:${value}`;
-    }
-    return this;
+  if (position[1][0] === '0' && position[1][1] === '0' && position[1][2] === '0') {
+    return '0'
   }
-
-  pseudoElement(value) {
-    if (this.pseudoElement1) {
-      throw new Error('Element, id and pseudo-element should not occur more then one time inside the selector');
-    }
-    this.pseudoElement1 = `::${value}`;
-    return this;
+  if (position[2][0] === '0' && position[2][1] === '0' && position[2][2] === '0') {
+    return '0'
   }
-
-  stringify() {
-    const retStr = Object.values(JSON.parse(JSON.stringify(this))).join('');
-    return retStr;
-  }
+  return undefined;
 }
 
-const cssSelectorBuilder = {
-  element(value) {
-    const selector = new Selector();
-    selector.element(value);
-    return selector;
-  },
 
-  id(value) {
-    const selector = new Selector();
-    selector.id(value);
-    return selector;
-  },
-  class(value) {
-    if (!this.class1) {
-      const selector = new Selector();
-      selector.class(value);
-      this.class1 = selector;
-      return selector;
-    }
-    return this.class1;
-  },
-  attr(value) {
-    if (!this.attr1) {
-      const selector = new Selector();
-      selector.attr(value);
-      this.attr1 = selector;
-      return selector;
-    }
-    return this.attr1.attr();
-  },
 
-  pseudoClass(value) {
-    if (!this.pseudoClass1) {
-      const selector = new Selector();
-      selector.pseudoClass(value);
-      this.pseudoClass1 = selector;
-      return selector;
-    }
-    return this.pseudoClass1.pseudoClass();
-  },
 
-  pseudoElement(value) {
-    if (!this.pseudoElement1) {
-      const selector = new Selector();
-      selector.pseudoElement(value);
-      this.pseudoElement1 = selector;
-      return selector;
-    }
-    return this.pseudoElement1.pseudoElement();
-  },
 
-  combine(selector1, combinator, selector2) {
-    this.combo = `${selector1.stringify()} ${combinator} ${selector2.stringify()}`;
-    return this;
-  },
-  stringify() {
-    return this.combo;
-  },
-};
 
-const builder = cssSelectorBuilder;
+console.log(evaluateTicTacToePosition([['X', '0', '0'], ['X', 'X', '0'], ['0', 'X', 'X']]));
+// console.log(evaluateTicTacToePosition([['X', , '0'], [, 'X', '0'], [, , 'X']]));
+// console.log(evaluateTicTacToePosition([['0', 'X', '0'], [, 'X',], ['X', '0', 'X']]));
 
-//console.log(builder.id('main').class('container').class('editable').stringify());
-//  => '#main.container.editable'
-//console.log(builder.element('a').attr('href$=".png"').pseudoClass('focus').stringify());
-builder.pseudoElement('after').pseudoClass('valid')
-console.log(builder.element('input').pseudoClass('focus').pseudoClass('invalid').stringify());
-//'.container.nav-bar.navbar-inverted'
-
-//  => 'a[href$=".png"]:focus'
-//  builder.combine(
-//       builder.element('div').id('main').class('container').class('draggable'),
-//       '+',
-//       builder.combine(
-//           builder.element('table').id('data'),
-//           '~',
-
-console.log(builder.combine(
-  builder.element('div').id('main').class('container').class('draggable'),
-  '+',
-  builder.combine(
-    builder.element('table').id('data'),
-    '~',
-    builder.combine(
-      builder.element('tr').pseudoClass('nth-of-type(even)'),
-      ' ',
-      builder.element('td').pseudoClass('nth-of-type(even)'),
-    ),
-  ),
-).stringify())
-//'div#main.container.draggable + table#data ~ tr:nth-of-type(even)   td:nth-of-type(even)'
